@@ -2,8 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import HomeSlider from '../components/Sliders/HomeSlider'
 import PopularSlider from '../components/Sliders/PopularSlider'
-import Telugu from '../components/Sliders/Telugu'
-import Hindi from '../components/Sliders/Hindi'
+import Telugu from '../components/Sliders/TeluguSlide'
+import Hindi from '../components/Sliders/HindiSlide'
 import Webseries from '../components/Sliders/Webseries'
 
 const HOME = () => {
