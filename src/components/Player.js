@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactPlayer from 'react-player';
+import StarRating from '../components/StarRating';
+import TeluguSlider from '../components/Sliders/TeluguSlide'
 
 const Player = () => {
   const { videoId } = useParams();
@@ -19,36 +21,55 @@ const Player = () => {
   }, [videoId]);
 
   return (
-    <div>
-
-      <div className="h-3/6 grid grid-cols-2 gap-4">
-        {/* Left Column (Video) */}
-        <div className="col-span-1">
-          <div className="m-10 flex items-center justify-center my-auto">
-            <ReactPlayer
-              url={decodeURIComponent(videoId)}
-              width="100%"
-              height="100%"
-              playing={playing}
-              controls={true}
-              onEnded={() => setPlaying(false)}
-            />
-          </div>
-        </div>
-      
-        {/* Right Column (Text) */}
-        <div className="col-span-1">
-          <h1 className="text-white text-center">Title: {name}</h1>
-          <h3 className="text-white text-center text-sm">Director: {director}</h3>
-          <h2 className="text-white text-center text-xs">Genre: {gener}</h2>
-          <p className="text-white text-center">Rating: {rating}</p>
-        </div>
-      </div>
-
-      <section>
-      <img src={thumbnail} alt={name} />
-      </section>
+    <main>
+    <section className="grid grid-cols-2 gap-4">
+  <div className="col-span-1">
+    <div className="m-10 h-96 flex items-center justify-center">
+      <ReactPlayer
+        url={decodeURIComponent(videoId)}
+        width="100%"
+        height="100%"
+        playing={playing}
+        controls={true}
+        onEnded={() => setPlaying(false)}
+      />
     </div>
+  </div>
+  <div className="col-span-1 flex items-center justify-center">
+    <div className="text-left text-white">
+      <h1 className='font-light text-2xl'>{name}</h1>
+      <h3 className="text-white text-sm">Director: {director}</h3>
+      <h2 className="text-white text-xs">{gener}</h2>
+      <StarRating rating={rating} />
+    </div>
+  </div>
+</section>
+
+    
+
+<section className="container mx-auto mt-8">
+  <div className="flex flex-col items-center sm:flex-row sm:justify-start space-y-4 sm:space-y-0 sm:space-x-5">
+    <img className="w-48 h-58" src={thumbnail} alt={name} />
+    <div className="text-white">
+      <h1 className="font-light text-2xl">{name} (Year)</h1>
+      <h3 className="text-sm">Director: {director}</h3>
+      <h2 className="text-xs">Genre: {gener}</h2>
+      <StarRating rating={rating} />
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+
+     
+
+<TeluguSlider/>
+
+
+    </main>
   );
 };
 
