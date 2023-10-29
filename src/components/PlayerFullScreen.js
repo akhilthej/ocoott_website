@@ -17,8 +17,9 @@ const Player = () => {
         url={decodeURIComponent(videoId)}
         width="100%"
         height="100%"
-        playing={playing}
+        playing={true}
         controls={true}
+        muted={true}
         onEnded={() => setPlaying(false)} // Pause when the video ends
       />
     </div>
