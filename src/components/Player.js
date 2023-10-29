@@ -22,9 +22,9 @@ const Player = () => {
 
   return (
     <main>
-    <section className="grid grid-cols-2 gap-4">
-  <div className="col-span-1">
-    <div className="m-10 h-96 flex items-center justify-center">
+    <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div className="col-span-1 sm:col-span-1">
+    <div className="m-4 sm:m-10 h-96 flex items-center justify-center">
       <ReactPlayer
         url={decodeURIComponent(videoId)}
         width="100%"
@@ -35,7 +35,7 @@ const Player = () => {
       />
     </div>
   </div>
-  <div className="col-span-1 flex items-center justify-center">
+  <div className="col-span-1 sm:col-span-1 flex items-center justify-center">
     <div className="text-left text-white">
       <h1 className='font-light text-2xl'>{name}</h1>
       <h3 className="text-white text-sm">Director: {director}</h3>
@@ -44,6 +44,7 @@ const Player = () => {
     </div>
   </div>
 </section>
+
 
     
 
