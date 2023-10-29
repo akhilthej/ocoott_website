@@ -6,6 +6,7 @@ import {Telugu,Hindi} from './routes/Routes';
 
 import { Login } from './routes/Routes';
 import Player from './components/Player';
+import PlayerFullScreen from './components/PlayerFullScreen'
 
 export function App() {
   const location = useLocation();
@@ -32,7 +33,8 @@ export function App() {
         <Route path="/disclaimer" element={<Disclaimer />} />
 
         <Route path="/player/:videoId" element={<Player />} />
-        
+        <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
+
         <Route path="/register" element={<Login />} />
         <Route path="/login" element={<Login />} />
 

@@ -10,7 +10,7 @@ function classNames(...classes) {
 
 const Navbar = () => {
   return (
-    <section class=" sticky top-0 z-50 bg-black/90 drop-shadow-lg  ">
+    <section class=" sticky top-0 z-50 bg-black drop-shadow-lg  ">
       <div className=" sm:px-2 w-full h-17 flex justify-between items-center text-white ">
         <Link to="/">
         <img

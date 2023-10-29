@@ -12,7 +12,7 @@ const Player = () => {
   }, [videoId]);
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
+    <div className="-mt-20 w-screen h-screen flex justify-center items-center">
       <ReactPlayer
         url={decodeURIComponent(videoId)}
         width="100%"
