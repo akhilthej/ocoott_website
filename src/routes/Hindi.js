@@ -1,18 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { HindiMoviesData } from '../components/DATA/MoviesData';
 import StarRating from '../components/StarRating';
-import { Link } from 'react-router-dom';
 
 const Hindi = () => {
   return (
     <div className="my-5">
-      <h1 className="pl-5 pb-2 text-center cursor-default text-2xl md:text-4xl fade-in-down font-bold text-white tracking-tight">
+      <h1 className="text-center pb-2 cursor-default text-2xl md:text-4xl fade-in-down font-bold text-white tracking-tight">
         Hindi
       </h1>
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 pl-5 pr-5">
         {HindiMoviesData.map((movie) => (
           <div key={movie.id} className="relative">
-            <Link to={`/player/${encodeURIComponent(movie.link)}`} target="_blank">
+            <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
               <div className="thumbnail-container">
                 <img className="p-3" src={movie.thumbnail} alt={movie.name} />
                 <div className="overlay"></div> {/* Black color overlay */}

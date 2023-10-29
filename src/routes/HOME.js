@@ -4,7 +4,6 @@ import HomeSlider from '../components/Sliders/HomeSlider'
 import PopularSlider from '../components/Sliders/PopularSlider'
 import Telugu from '../components/Sliders/TeluguSlide'
 import Hindi from '../components/Sliders/HindiSlide'
-import Webseries from '../components/Sliders/Webseries'
 
 const HOME = () => {
   return (
@@ -23,7 +22,6 @@ const HOME = () => {
       <PopularSlider />
       <Telugu/>
       <Hindi />
-      <Webseries />
       </main>
   )
 }
