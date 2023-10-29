@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { TeluguMoviesData } from '../components/DATA/MoviesData';
 import StarRating from '../components/StarRating';
-import { Link } from 'react-router-dom';
 
 const Telugu = () => {
   return (
@@ -12,7 +12,7 @@ const Telugu = () => {
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 pl-5 pr-5">
         {TeluguMoviesData.map((movie) => (
           <div key={movie.id} className="relative">
-            <Link to={`/player/${encodeURIComponent(movie.link)}`} target="_blank">
+            <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
               <div className="thumbnail-container">
                 <img className="p-3" src={movie.thumbnail} alt={movie.name} />
                 <div className="overlay"></div> {/* Black color overlay */}
