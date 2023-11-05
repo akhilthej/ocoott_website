@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 
-import NavbarLogo from "./csdv2Logonavbar.svg";
+import NavbarLogo from "./csdv2Logonavbar.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

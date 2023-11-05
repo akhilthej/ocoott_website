@@ -95,7 +95,7 @@ const Login = () => {
             type="password"
             placeholder="Password"
           />
-          {!passwordValid && <p className="text-danger">Password is invalid/blank</p>}
+          {!passwordValid && <p className="text-danger text-red-700">Password is invalid/blank</p>}
           <div className="text-center">
             <button
               className="btn btn-danger bg-red-500 hover:bg-red-600 text-white p-2 w-full mt-4"
