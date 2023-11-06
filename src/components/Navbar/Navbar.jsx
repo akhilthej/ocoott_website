@@ -41,9 +41,7 @@ const Navbar = () => {
             <li className="p-4 text-sm hidden lg:block font-medium antialiased rounded-md px-4 py-2 text-white hover.bg-yellow-500 focus:outline-none">
               <Link to="/hindi-movies">Hindi</Link>
             </li>
-            <li className="p-4 text-sm hidden lg:block font-medium antialiased rounded-md px-4 py-2 text-white hover:bg-yellow-500 focus:outline-none">
-              <Link to="/webseries">Web Series</Link>
-            </li>
+           
             <li className="p-4">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
