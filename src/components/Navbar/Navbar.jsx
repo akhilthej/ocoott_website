@@ -21,6 +21,13 @@ const Navbar = () => {
     }
   }, []);
 
+  const handleLogout = () => {
+    // Clear user data from local storage and log the user out
+    localStorage.removeItem("emailOrPhone");
+    localStorage.removeItem("password");
+    setLoggedIn(false);
+  };
+
   return (
     <section class="sticky top-0 z-50 bg-black drop-shadow-lg">
       <div className="sm:px-2 w-full h-17 flex justify-between items-center text-white">
@@ -101,46 +108,7 @@ const Navbar = () => {
                         </Link>
                       )}
                     </Menu.Item>
-                    <div className="py-1 lg:py-0">
-                      {loggedIn ? (
-                        // When logged in, display the user's email
-                        <div>
-                          <p className="block px-4 py-2 text-sm text-white">
-                            Logged in as: {userEmail}
-                          </p>
-                          <Menu.Item>
-                            {({ active }) => (
-                              <Link to="/dashboard">
-                                <a
-                                  className={classNames(
-                                    active ? "bg-yellow-500 text-white" : "text-white",
-                                    "block px-4 py-2 text-sm"
-                                  )}
-                                >
-                                  Dashboard
-                                </a>
-                              </Link>
-                            )}
-                          </Menu.Item>
-                        </div>
-                      ) : (
-                        // When not logged in, display the "Login" link
-                        <Menu.Item>
-                          {({ active }) => (
-                            <Link to="/login">
-                              <a
-                                className={classNames(
-                                  active ? "bg-yellow-500 text-white" : "text-white",
-                                  "block px-4 py-2 text-sm"
-                                )}
-                              >
-                                Login
-                              </a>
-                            </Link>
-                          )}
-                        </Menu.Item>
-                      )}
-                      <Menu.Item>
+                    <Menu.Item>
                         {({ active }) => (
                           <Link to="/aboutus">
                             <a
@@ -168,6 +136,58 @@ const Navbar = () => {
                           </Link>
                         )}
                       </Menu.Item>
+                      
+                    <div className="py-1 lg:py-0">
+                      {loggedIn ? (
+                        <div>
+                          <p className="block px-4 py-2 text-sm text-white">
+                            Logged in as: {userEmail}
+                          </p>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <Link to="/dashboard">
+                                <a
+                                  className={classNames(
+                                    active ? "bg-yellow-500 text-white" : "text-white",
+                                    "block px-4 py-2 text-sm"
+                                  )}
+                                >
+                                  Dashboard
+                                </a>
+                              </Link>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <button
+                                onClick={handleLogout}
+                                className={classNames(
+                                  active ? "bg-yellow-500 text-white" : "text-white",
+                                  "block px-4 py-2 text-sm w-full text-left"
+                                )}
+                              >
+                                Logout
+                              </button>
+                            )}
+                          </Menu.Item>
+                        </div>
+                      ) : (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link to="/login">
+                              <a
+                                className={classNames(
+                                  active ? "bg-yellow-500 text-white" : "text-white",
+                                  "block px-4 py-2 text-sm"
+                                )}
+                              >
+                                Login
+                              </a>
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      )}
+                     
                     </div>
                   </Menu.Items>
                 </Transition>

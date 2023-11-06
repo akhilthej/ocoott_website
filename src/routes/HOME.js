@@ -5,7 +5,7 @@ import PopularSlider from '../components/Sliders/PopularSlider'
 import Telugu from '../components/Sliders/TeluguSlide'
 import Hindi from '../components/Sliders/HindiSlide'
 
-const HOME = () => {
+const Home = () => {
   return (
     <main>
      <Helmet>
@@ -26,4 +26,4 @@ const HOME = () => {
   )
 }
 
-export default HOME
+export default Home

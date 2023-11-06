@@ -7,6 +7,7 @@ import {Telugu,Hindi} from './routes/Routes';
 import { Login,RegistrationForm } from './routes/Routes';
 import Player from './components/Player';
 import PlayerFullScreen from './components/PlayerFullScreen'
+import Dashboard from './routes/UserData/Dashboard';
 
 export function App() {
   const location = useLocation();
@@ -37,6 +38,7 @@ export function App() {
 
         <Route path="/register" element={<RegistrationForm />} />
         <Route path="/login" element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />}/>
 
         <Route path="*" element={<Error404 />} />
       </Routes>
