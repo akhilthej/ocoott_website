@@ -15,7 +15,6 @@ import Contactus from './General/CONTACTUS';
 import Telugu from './Telugu';
 import Hindi from './Hindi';
 
-import Login from "./UserData/Login";
 import RegistrationForm from "./UserData/Registration";
 
 
@@ -30,6 +29,6 @@ Telugu,Hindi,
 Aboutus,Contactus,ReturnPolicy,
 
 /*Services */
-Login,RegistrationForm,
+RegistrationForm,
 
 };
