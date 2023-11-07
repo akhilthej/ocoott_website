@@ -4,6 +4,7 @@ function SignupForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isSignupSuccess, setIsSignupSuccess] = useState(false);
 
@@ -11,12 +12,13 @@ function SignupForm() {
   const isNameValid = (name) => name.length >= 5 && name.length <= 20;
   const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email);
   const isPhoneValid = (phone) => /^\d{10}$/.test(phone);
+  const isPasswordValid = (password) => password.length > 8;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate the form data
-    if (!isNameValid(name) || !isEmailValid(email) || !isPhoneValid(phone)) {
+    if (!isNameValid(name) || !isEmailValid(email) || !isPhoneValid(phone) || !isPasswordValid(password)) {
       setErrorMessage('Please check the form fields for validation errors.');
       return;
     }
@@ -25,8 +27,9 @@ function SignupForm() {
     formData.append('name', name);
     formData.append('email', email);
     formData.append('phone', phone);
+    formData.append('password', password);
 
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxYcWO_MyXwZwSQdWN9TvSZZqYmHEs97PxHdRRViOSBXUBSmA5G4i_GVbBgbZ2rpqigGA/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyVtoXxWi188FD50oHX5dSLKt6kEZa-s9zoF5TT0P8O2oDNNfxPTGpS_vzNInG_FwOCzg/exec', {
       method: 'POST',
       body: formData,
     });
@@ -96,6 +99,18 @@ function SignupForm() {
           />
           {!isPhoneValid(phone) && <p className="text-red-500 text-xs">Please enter a 10-digit phone number with numbers only.</p>}
         </div>
+
+        <div className="mb-6">
+  <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+  <input
+    id="password"
+    type="password"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    className={`w-full px-3 py-2 leading-tight border ${isPasswordValid(password) ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+  />
+  {!isPasswordValid(password) && <p className="text-red-500 text-xs">Password must be at least 8 characters long.</p>}
+</div>
 
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           Submit

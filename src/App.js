@@ -5,6 +5,7 @@ import { Navbar, Footer, PrivacyPolicy, TermsnConditions, Disclaimer, ReturnPoli
 import {Telugu,Hindi} from './routes/Routes';
 
 import { RegistrationForm } from './routes/Routes';
+import Login from './routes/UserData/Login'
 import Player from './components/Player';
 import PlayerFullScreen from './components/PlayerFullScreen'
 
@@ -36,6 +37,8 @@ export function App() {
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
 
         <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/login" element={<Login />} />
+        
 
 
         <Route path="*" element={<Error404 />} />
