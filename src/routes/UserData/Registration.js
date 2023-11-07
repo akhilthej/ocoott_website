@@ -4,9 +4,21 @@ function SignupForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Validation functions
+  const isNameValid = (name) => name.length >= 5 && name.length <= 20;
+  const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email);
+  const isPhoneValid = (phone) => /^\d{10}$/.test(phone);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validate the form data
+    if (!isNameValid(name) || !isEmailValid(email) || !isPhoneValid(phone)) {
+      setErrorMessage('Please check the form fields for validation errors.');
+      return;
+    }
 
     const formData = new FormData();
     formData.append('name', name);
@@ -19,53 +31,63 @@ function SignupForm() {
     });
 
     if (response.ok) {
-      console.log('Data submitted successfully.');
-      // You can add further actions or state updates here.
+      const data = await response.json();
+      if (data.result === 'success') {
+        console.log('Data submitted successfully.');
+        // You can add further actions or state updates here.
+      } else {
+        setErrorMessage(data.message);
+      }
     } else {
       console.error('Failed to submit data.');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} class="w-full max-w-md mx-auto p-4 bg-white rounded shadow-md">
-    <div class="mb-4">
-      <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-      <input
-        id="name"
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        class="w-full px-3 py-2 leading-tight border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-      />
+    <div>
+      {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+      <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-4 bg-white rounded shadow-md">
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={`w-full px-3 py-2 leading-tight border ${isNameValid(name) ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+          />
+          {!isNameValid(name) && <p className="text-red-500 text-xs">Name must be 5 to 20 characters.</p>}
+        </div>
+
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={`w-full px-3 py-2 leading-tight border ${isEmailValid(email) ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+          />
+          {!isEmailValid(email) && <p className="text-red-500 text-xs">Please enter a valid email address.</p>}
+        </div>
+
+        <div className="mb-6">
+          <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">Phone:</label>
+          <input
+            id="phone"
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className={`w-full px-3 py-2 leading-tight border ${isPhoneValid(phone) ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+          />
+          {!isPhoneValid(phone) && <p className="text-red-500 text-xs">Please enter a 10-digit phone number with numbers only.</p>}
+        </div>
+
+        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          Submit
+        </button>
+      </form>
     </div>
-  
-    <div class="mb-4">
-      <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-      <input
-        id="email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        class="w-full px-3 py-2 leading-tight border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-      />
-    </div>
-  
-    <div class="mb-6">
-      <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone:</label>
-      <input
-        id="phone"
-        type="tel"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        class="w-full px-3 py-2 leading-tight border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-      />
-    </div>
-  
-    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-      Submit
-    </button>
-  </form>
-  
   );
 }
 
