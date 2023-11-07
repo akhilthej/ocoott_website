@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <section class="sticky top-0 z-50 bg-black drop-shadow-lg p-5">
+    <section class="sticky top-0 z-50 bg-black drop-shadow-lg">
       <div className="sm:px-2 w-full h-17 flex justify-between items-center text-white">
         <Link to="/">
           <img
@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
            
             <li className="p-4">
-              <Menu as="div" className="relative inline-block text-left lg:hidden">
+              <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="text-3xl">
                     ☰
@@ -95,7 +95,7 @@ const Navbar = () => {
                       )}
                     </Menu.Item>
                 
-                   {/* <Menu.Item>
+                    <Menu.Item>
                         {({ active }) => (
                           <Link to="/aboutus">
                             <a
@@ -122,7 +122,7 @@ const Navbar = () => {
                             </a>
                           </Link>
                         )}
-                      </Menu.Item>*/}
+                      </Menu.Item>
                       
                
                          

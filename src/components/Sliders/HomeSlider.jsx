@@ -52,7 +52,7 @@ const HomeSlider = () => {
   ];
 
   return (
-    <div className="h-1/2 screen z-0">
+    <div className="h-1/2 screen z-0 mt-0 lg:-mt-20">
       <Carousel
         showArrows={true}
         showStatus={false}

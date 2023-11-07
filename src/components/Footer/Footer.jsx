@@ -6,7 +6,7 @@ import footer_csd from './csdv2Logofooter.svg';
 const Footer = () => {
   return (
     <footer className="bg-black">
-      {/* Subscription section */}
+      {/* Subscription section 
       <section className="bg-black flex items-center justify-center px-5 py-10">
         <div className="w-full max-w-screen-lg grid gap-5 md:grid-cols-2 md:gap-10 lg:gap-20">
           <div className="flex justify-center md:justify-end"></div>
@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Footer */}
       <section className="bg-black pb-5">

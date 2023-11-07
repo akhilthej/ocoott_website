@@ -1,7 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import HomeSlider from '../components/Sliders/HomeSlider'
-import PopularSlider from '../components/Sliders/PopularSlider'
 import TeluguSlider from '../components/Sliders/TeluguSlide'
 import OriginalsSlider from '../components/Sliders/OriginalsSlide'
 
@@ -19,7 +18,6 @@ const Home = () => {
       
 
       <HomeSlider/>
-      <PopularSlider />
       <TeluguSlider/>
       <OriginalsSlider />
       </main>
