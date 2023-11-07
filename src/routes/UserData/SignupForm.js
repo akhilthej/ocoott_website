@@ -29,7 +29,7 @@ function SignupForm() {
     formData.append('phone', phone);
     formData.append('password', password);
 
-    const response = await fetch('https://script.google.com/macros/s/AKfycbyVtoXxWi188FD50oHX5dSLKt6kEZa-s9zoF5TT0P8O2oDNNfxPTGpS_vzNInG_FwOCzg/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxoIvHGrkTQSxbCuyQRLbNQoS30duvMMGCnzG6G5j0XTYTVOcJY8tYAhkQlBJMpR6gsjw/exec', {
       method: 'POST',
       body: formData,
     });
@@ -101,18 +101,18 @@ function SignupForm() {
         </div>
 
         <div className="mb-6">
-  <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-  <input
-    id="password"
-    type="password"
-    value={password}
-    onChange={(e) => setPassword(e.target.value)}
-    className={`w-full px-3 py-2 leading-tight border ${isPasswordValid(password) ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
-  />
-  {!isPasswordValid(password) && <p className="text-red-500 text-xs">Password must be at least 8 characters long.</p>}
-</div>
+          <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={`w-full px-3 py-2 leading-tight border ${isPasswordValid(password) ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+          />
+          {!isPasswordValid(password) && <p className="text-red-500 text-xs">Password must be at least 8 characters long.</p>}
+        </div>
 
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <button type="submit" className="bg-blue-500 hover-bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           Submit
         </button>
       </form>
@@ -120,4 +120,6 @@ function SignupForm() {
   );
 }
 
-export default SignupForm;
+
+
+export { SignupForm };

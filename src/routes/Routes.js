@@ -15,7 +15,7 @@ import Contactus from './General/CONTACTUS';
 import Telugu from './Pages/Telugu';
 import Hindi from './Pages/Originals';
 
-import RegistrationForm from "./UserData/Registration";
+
 
 
 export {
@@ -27,8 +27,5 @@ Error404,Home,
 
 Telugu,Hindi,
 Aboutus,Contactus,ReturnPolicy,
-
-/*Services */
-RegistrationForm,
 
 };
