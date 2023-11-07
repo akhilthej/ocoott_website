@@ -1,138 +1,69 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
 
-export default function RegistrationForm() {
-  const [message, setMessage] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+function App() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  }
-
-  function isValidPassword(password) {
-    return password.length >= 8;
-  }
-
-  function isValidPhone(phone) {
-    return /^\d{10}$/.test(phone);
-  }
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-    if (!isValidEmail(e.target.value)) {
-      setMessage("Invalid email format");
-    } else {
-      setMessage("");
-    }
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-    if (!isValidPassword(e.target.value)) {
-      setMessage("Password must be 8 or more characters");
-    } else {
-      setMessage("");
-    }
-  }
-
-  function handlePhoneChange(e) {
-    setPhone(e.target.value);
-    if (!isValidPhone(e.target.value)) {
-      setMessage("Phone number must contain only numbers and 10 digits");
-    } else {
-      setMessage("");
-    }
-  }
-
-  function Submit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage(""); // Clear previous error messages
 
-    if (!isValidEmail(email)) {
-      setMessage("Invalid email format");
-      return;
-    }
-
-    if (!isValidPassword(password)) {
-      setMessage("Password must be 8 or more characters");
-      return;
-    }
-
-    if (!isValidPhone(phone)) {
-      setMessage("Phone number must contain only numbers and 10 digits");
-      return;
-    }
-
-    const formEle = document.querySelector("form");
-    const formDatab = new FormData(formEle);
-    formDatab.append("email", email);
-    formDatab.append("phone", phone);
-    formDatab.append("password", password);
-
-    fetch(
-      "https://script.google.com/macros/s/AKfycbxGng_P2DPAhRTTVCP634MWfzKz6w2JaalGdpE4ignEtKS4Bs0rElseVDhGcEm_ztu2/exec",
+    // Send the form data to Google Apps Script
+    const response = await fetch(
+      'https://script.google.com/macros/s/AKfycbzMnxx68Djj4NbOYciEnRsXJE_-xMtIVKHiIV1eDbTP8vA9PCRJLNWEEvPktY4toZq29g/exec',
       {
-        method: "POST",
-        body: formDatab,
+        method: 'POST',
+        body: JSON.stringify({ name, email }),
       }
-    )
-      .then((res) => {
-        if (res.status === 200) {
-          return res.text();
-        } else {
-          throw new Error(`Received status code ${res.status}`);
-        }
-      })
-      .then((data) => {
-        setMessage(data);
-        if (data.includes("successfully Registered")) {
-          navigate("/login");
-        }
-      })
-      .catch((error) => {
-        setMessage(`An error occurred: ${error.message}`);
-        console.log(error);
-      });
-  }
+    );
+
+    const result = await response.text();
+
+    if (response.ok && result === 'Success') {
+      alert('Signup successful!');
+    } else if (result === 'Email already exists') {
+      alert('Email already exists. Please use a different email.');
+    } else {
+      alert('Signup failed. Please try again.');
+    }
+  };
 
   return (
-    <div className="RegistrationForm min-h-screen flex items-center justify-center -mt-14 bg-cover bg-center" style={{ backgroundImage: 'url("your-background-image-url.jpg")' }}>
-      <div className="bg-white p-8 rounded-md shadow-md w-96">
-        <h1 className="text-2xl font-semibold mb-4">Registration Form</h1>
-        <form className="form" onSubmit={(e) => Submit(e)}>
-          <input
-            className="w-full p-2 mb-4 border rounded-md"
-            placeholder="Email"
-            name="Email"
-            type="text"
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <input
-            className="w-full p-2 mb-4 border rounded-md"
-            placeholder="Phone Number"
-            name="Phone"
-            type="text"
-            value={phone}
-            onChange={handlePhoneChange}
-          />
-          <input
-            className="w-full p-2 mb-4 border rounded-md"
-            placeholder="Password"
-            name="Password"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          <button className="w-full bg-blue-500 text-white p-2 rounded-md" type="submit">
-            Register
-          </button>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="max-w-md w-full p-4 bg-white rounded shadow-lg">
+        <h1 className="text-2xl font-bold text-center mb-4">Signup Form</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-gray-700">Name:</label>
+            <input
+              type="text"
+              id="name"
+              className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-300"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-gray-700">Email:</label>
+            <input
+              type="email"
+              id="email"
+              className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-300"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+            >
+              Sign Up
+            </button>
+          </div>
         </form>
-        <p className="text-red-500 mt-2">{message}</p>
       </div>
     </div>
   );
 }
+
+export default App;
