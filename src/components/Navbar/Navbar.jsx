@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <section class="sticky top-0 z-50 bg-black drop-shadow-lg">
+    <section class="sticky top-0 z-50 bg-black drop-shadow-lg p-5">
       <div className="sm:px-2 w-full h-17 flex justify-between items-center text-white">
         <Link to="/">
           <img
@@ -46,11 +46,11 @@ const Navbar = () => {
               <Link to="/telugu-movies">Telugu</Link>
             </li>
             <li className="p-4 text-sm hidden lg:block font-medium antialiased rounded-md px-4 py-2 text-white hover.bg-yellow-500 focus:outline-none">
-              <Link to="/hindi-movies">Hindi</Link>
+              <Link to="/originals-movies">Originals</Link>
             </li>
            
             <li className="p-4">
-              <Menu as="div" className="relative inline-block text-left">
+              <Menu as="div" className="relative inline-block text-left lg:hidden">
                 <div>
                   <Menu.Button className="text-3xl">
                     ☰
@@ -82,20 +82,20 @@ const Navbar = () => {
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to="/hindi-movies" className="lg:hidden">
+                        <Link to="/originals-movies" className="lg:hidden">
                           <a
                             className={classNames(
                               active ? "bg-yellow-500 text-white" : "text-white",
                               "block px-4 py-2 text-sm"
                             )}
                           >
-                            Hindi
+                            Originals
                           </a>
                         </Link>
                       )}
                     </Menu.Item>
                 
-                    <Menu.Item>
+                   {/* <Menu.Item>
                         {({ active }) => (
                           <Link to="/aboutus">
                             <a
@@ -122,7 +122,7 @@ const Navbar = () => {
                             </a>
                           </Link>
                         )}
-                      </Menu.Item>
+                      </Menu.Item>*/}
                       
                
                          

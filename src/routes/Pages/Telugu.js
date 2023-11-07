@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { TeluguMoviesData } from '../components/DATA/MoviesData';
-import StarRating from '../components/StarRating';
+import { TeluguMoviesData } from '../../components/DATA/TeluguMovieData';
+import StarRating from '../../components/StarRating';
 
 const Telugu = () => {
   return (

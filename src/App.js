@@ -23,7 +23,7 @@ export function App() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/telugu-movies" element={<Telugu />} />
-        <Route path="/hindi-movies" element={<Hindi />} />
+        <Route path="/originals-movies" element={<Hindi />} />
 
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/contactus" element={<Contactus />} />

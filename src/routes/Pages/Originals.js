@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HindiMoviesData } from '../components/DATA/MoviesData';
-import StarRating from '../components/StarRating';
+import { OriginalsMovieData } from '../../components/DATA/OriginalsMovieData';
+import StarRating from '../../components/StarRating';
 
-const Hindi = () => {
+const Originals = () => {
   return (
     <div className="my-5">
       <h1 className="text-center pb-2 cursor-default text-2xl md:text-4xl fade-in-down font-bold text-white tracking-tight">
         Hindi
       </h1>
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 pl-5 pr-5">
-        {HindiMoviesData.map((movie) => (
+        {OriginalsMovieData.map((movie) => (
           <div key={movie.id} className="relative">
             <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
               <div className="thumbnail-container">
@@ -29,4 +29,4 @@ const Hindi = () => {
   );
 };
 
-export default Hindi;
+export default Originals;

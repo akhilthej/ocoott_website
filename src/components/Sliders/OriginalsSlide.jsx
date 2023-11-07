@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { HindiMoviesData } from '../DATA/MoviesData';
+import { OriginalsMovieData } from '../DATA/OriginalsMovieData';
 import StarRating from '../StarRating';
 import { Link } from 'react-router-dom';
 
@@ -29,11 +29,11 @@ const Hindi = () => {
    return (
     <div className="my-5">
       <h1 className="pl-5 pb-2 cursor-default text-2xl md:text-4xl fade-in-down font-bold text-white tracking-tight">
-        Hindi
+      Originals
       </h1>
       <div className="slider-container">
         <Slider {...settings}>
-        {HindiMoviesData.map((movie) => (
+        {OriginalsMovieData.map((movie) => (
           <div key={movie.id} className="relative">
             <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
               <div className="thumbnail-container">

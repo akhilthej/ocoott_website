@@ -12,8 +12,8 @@ import Aboutus from './General/Aboutus';
 import Contactus from './General/CONTACTUS';
 
 
-import Telugu from './Telugu';
-import Hindi from './Hindi';
+import Telugu from './Pages/Telugu';
+import Hindi from './Pages/Originals';
 
 import RegistrationForm from "./UserData/Registration";
 

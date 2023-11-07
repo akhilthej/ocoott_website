@@ -2,8 +2,8 @@ import React from 'react'
 import { Helmet } from 'react-helmet-async'
 import HomeSlider from '../components/Sliders/HomeSlider'
 import PopularSlider from '../components/Sliders/PopularSlider'
-import Telugu from '../components/Sliders/TeluguSlide'
-import Hindi from '../components/Sliders/HindiSlide'
+import TeluguSlider from '../components/Sliders/TeluguSlide'
+import OriginalsSlider from '../components/Sliders/OriginalsSlide'
 
 const Home = () => {
   return (
@@ -20,8 +20,8 @@ const Home = () => {
 
       <HomeSlider/>
       <PopularSlider />
-      <Telugu/>
-      <Hindi />
+      <TeluguSlider/>
+      <OriginalsSlider />
       </main>
   )
 }
