@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function SignupForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSignupSuccess, setIsSignupSuccess] = useState(false);
 
   // Validation functions
   const isNameValid = (name) => name.length >= 5 && name.length <= 20;
@@ -34,7 +35,7 @@ function SignupForm() {
       const data = await response.json();
       if (data.result === 'success') {
         console.log('Data submitted successfully.');
-        // You can add further actions or state updates here.
+        setIsSignupSuccess(true);
       } else {
         setErrorMessage(data.message);
       }
@@ -43,8 +44,21 @@ function SignupForm() {
     }
   };
 
+  // Use the useEffect hook to check for signup success and perform the redirection
+  useEffect(() => {
+    if (isSignupSuccess) {
+      setErrorMessage('Signup Successful!');
+      // Redirect to the "/login" page after 2 seconds
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 2000);
+    }
+  }, [isSignupSuccess]);
+
   return (
     <div>
+      {errorMessage && <div className="text-green-500">{errorMessage}</div>}
+      {isSignupSuccess && <div className="text-green-500">Signup Successful!</div>}
       {errorMessage && <div className="text-red-500">{errorMessage}</div>}
       <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-4 bg-white rounded shadow-md">
         <div className="mb-4">
