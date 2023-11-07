@@ -1,69 +1,72 @@
 import React, { useState } from 'react';
 
-function App() {
-  const [email, setEmail] = useState('');
+function SignupForm() {
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send the form data to Google Apps Script
-    const response = await fetch(
-      'https://script.google.com/macros/s/AKfycbzMnxx68Djj4NbOYciEnRsXJE_-xMtIVKHiIV1eDbTP8vA9PCRJLNWEEvPktY4toZq29g/exec',
-      {
-        method: 'POST',
-        body: JSON.stringify({ name, email }),
-      }
-    );
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
 
-    const result = await response.text();
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxYcWO_MyXwZwSQdWN9TvSZZqYmHEs97PxHdRRViOSBXUBSmA5G4i_GVbBgbZ2rpqigGA/exec', {
+      method: 'POST',
+      body: formData,
+    });
 
-    if (response.ok && result === 'Success') {
-      alert('Signup successful!');
-    } else if (result === 'Email already exists') {
-      alert('Email already exists. Please use a different email.');
+    if (response.ok) {
+      console.log('Data submitted successfully.');
+      // You can add further actions or state updates here.
     } else {
-      alert('Signup failed. Please try again.');
+      console.error('Failed to submit data.');
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-md w-full p-4 bg-white rounded shadow-lg">
-        <h1 className="text-2xl font-bold text-center mb-4">Signup Form</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700">Name:</label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-300"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700">Email:</label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-300"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
-            >
-              Sign Up
-            </button>
-          </div>
-        </form>
-      </div>
+    <form onSubmit={handleSubmit} class="w-full max-w-md mx-auto p-4 bg-white rounded shadow-md">
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+      <input
+        id="name"
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        class="w-full px-3 py-2 leading-tight border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+      />
     </div>
+  
+    <div class="mb-4">
+      <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+      <input
+        id="email"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        class="w-full px-3 py-2 leading-tight border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+      />
+    </div>
+  
+    <div class="mb-6">
+      <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone:</label>
+      <input
+        id="phone"
+        type="tel"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+        class="w-full px-3 py-2 leading-tight border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+      />
+    </div>
+  
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      Submit
+    </button>
+  </form>
+  
   );
 }
 
-export default App;
+export default SignupForm;
