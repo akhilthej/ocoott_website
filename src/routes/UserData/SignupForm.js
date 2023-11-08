@@ -1,13 +1,46 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function App() {
   const [message, setMessage] = useState(""); // State to hold the feedback message
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPhoneNumberValid, setIsPhoneNumberValid] = useState(true);
+  const [isValid, setIsValid] = useState(true);
+
+  useEffect(() => {
+    if (message.startsWith("Email or phone number already exists")) {
+      setIsValid(false);
+    } else {
+      setIsValid(true);
+    }
+  }, [message]);
 
   function Submit(e) {
     e.preventDefault(); // Prevent the default form submission behavior
 
-    const formEle = document.querySelector("form");
-    const formDatab = new FormData(formEle);
+    // Real-time validation
+    if (!validateEmail(email)) {
+      setIsEmailValid(false);
+      return;
+    } else {
+      setIsEmailValid(true);
+    }
+
+    if (!validatePhoneNumber(phoneNumber)) {
+      setIsPhoneNumberValid(false);
+      return;
+    } else {
+      setIsPhoneNumberValid(true);
+    }
+
+    const formDatab = new FormData();
+    formDatab.append("Name", name);
+    formDatab.append("Email", email);
+    formDatab.append("PhoneNumber", phoneNumber);
+    formDatab.append("Password", password);
 
     fetch("https://script.google.com/macros/s/AKfycbxPXF6L8aKpbIZb0c7mBwk6XYTYnRWalbBfmFfiXTiaaxwKKoDWeJVu0XqM4ZxmsOE5BA/exec", {
       method: "POST",
@@ -29,18 +62,66 @@ export default function App() {
       });
   }
 
+  function validateEmail(value) {
+    // Implement your email validation logic here
+    // Return true if valid, false otherwise
+    return true;
+  }
+
+  function validatePhoneNumber(value) {
+    // Implement your phone number validation logic here
+    // Return true if valid, false otherwise
+    return true;
+  }
+
   return (
-    <div>
-      <h1>Signup</h1>
-      <div>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h1 className="text-2xl font-bold mb-4">Signup</h1>
         <form className="form" onSubmit={(e) => Submit(e)}>
-          <input placeholder="Your Name" name="Name" type="text" />
-          <input placeholder="Your Email" name="Email" type="text" />
-          <input placeholder="Phone Number" name="PhoneNumber" type="text" />
-          <input placeholder="Password" name="Password" type="password" />
-          <input className="text-white" type="submit" value="Submit" />
+          <input
+            type="text"
+            placeholder="Your Name"
+            name="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-blue-500"
+          />
+          <input
+            type="text"
+            placeholder="Your Email"
+            name="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onBlur={(e) => setIsEmailValid(validateEmail(e.target.value))}
+            className={`w-full px-3 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+          />
+          {!isEmailValid && <p className="text-red-500 text-xs">Please enter a valid email address.</p>}
+          <input
+            type="text"
+            placeholder="Phone Number"
+            name="PhoneNumber"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            onBlur={(e) => setIsPhoneNumberValid(validatePhoneNumber(e.target.value))}
+            className={`w-full px-3 py-2 border ${isPhoneNumberValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+          />
+          {!isPhoneNumberValid && <p className="text-red-500 text-xs">Please enter a valid phone number.</p>}
+          <input
+            type="password"
+            placeholder="Password"
+            name="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-blue-500"
+          />
+          <input
+            type="submit"
+            value="Submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          />
         </form>
-        <p className="text-white">{message}</p> {/* Display the feedback message */}
+        <p className={`mt-4 text-sm ${isValid ? 'text-green-500' : 'text-red-500'}`}>{message}</p>
       </div>
     </div>
   );
