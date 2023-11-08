@@ -4,7 +4,7 @@ import { Navbar, Footer, PrivacyPolicy, TermsnConditions, Disclaimer, ReturnPoli
 
 import {Telugu,Hindi} from './routes/Routes';
 
-import { SignupForm } from './routes/UserData/SignupForm';
+import Signup from './routes/UserData/SignupForm';
 import Login from './routes/UserData/Login'
 import Player from './components/Player';
 import PlayerFullScreen from './components/PlayerFullScreen'
@@ -36,7 +36,7 @@ export function App() {
         <Route path="/player/:videoId" element={<Player />} />
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
 
-        <Route path="/register" element={<SignupForm />} />
+        <Route path="/singup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         
 
