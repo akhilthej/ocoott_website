@@ -3,7 +3,7 @@ const OriginalsMovieData = [
       id: 'ORG001',
       name: "Shhhh'Q",
       thumbnail: 'https://drive.google.com/uc?id=1LooTfIqQLNoFlaIG_PFnfTJTakRNSDu4',
-      link: 'https://srv878-files.hstgr.io/5b1086895111f099/files/public_html/Movies/Youtubetestvideo.mp4',
+      link: 'https://drive.google.com/file/d/15KLxJvvwUpUsYCpnnZFMHIZmJVcqvp3e/view?usp=drive_link',
       director: 'Anudeep',
       gener: 'Love',
       rating: 4.5,

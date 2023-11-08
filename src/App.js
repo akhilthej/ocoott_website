@@ -6,8 +6,10 @@ import {Telugu,Hindi} from './routes/Routes';
 
 import Signup from './routes/UserData/SignupForm';
 import Login from './routes/UserData/Login'
-import Player from './components/Player';
-import PlayerFullScreen from './components/PlayerFullScreen'
+
+import Player from './components/Players/Player';
+import PlayerFullScreen from './components/Players/PlayerFullScreen'
+import OcoFullScreenPlayer from './components/Players/ocoFullScreenPlayer'
 
 export function App() {
   const location = useLocation();
@@ -15,7 +17,6 @@ export function App() {
 
   // Check if the current route is '/player'
   const isPlayerRoute = location.pathname.startsWith('/player');
-
   return (
     <>
       {/* Conditionally render Navbar */}
@@ -35,6 +36,8 @@ export function App() {
 
         <Route path="/player/:videoId" element={<Player />} />
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
+        
+        <Route path="/ocofullscreenplayer/:videoId" element={<OcoFullScreenPlayer />} />
 
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />

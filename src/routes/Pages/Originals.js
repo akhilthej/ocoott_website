@@ -7,12 +7,12 @@ const Originals = () => {
   return (
     <div className="my-5">
       <h1 className="text-center pb-2 cursor-default text-2xl md:text-4xl fade-in-down font-bold text-white tracking-tight">
-        Hindi
+        Originals
       </h1>
       <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 pl-5 pr-5">
         {OriginalsMovieData.map((movie) => (
           <div key={movie.id} className="relative">
-            <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
+            <Link to={`/ocofullscreenplayer/${encodeURIComponent(JSON.stringify(movie))}`}>
               <div className="thumbnail-container">
                 <img className="p-3" src={movie.thumbnail} alt={movie.name} />
                 <div className="overlay"></div> {/* Black color overlay */}
