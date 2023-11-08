@@ -94,7 +94,23 @@ const Navbar = () => {
                         </Link>
                       )}
                     </Menu.Item>
-                
+
+
+                    <Menu.Item>
+                        {({ active }) => (
+                          <Link to="/login">
+                            <a
+                              className={classNames(
+                                active ? "bg-yellow-500 text-white" : "text-white",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              Login / Signup
+                            </a>
+                          </Link>
+                        )}
+                      </Menu.Item>
+
                     <Menu.Item>
                         {({ active }) => (
                           <Link to="/aboutus">

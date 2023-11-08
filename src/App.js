@@ -36,7 +36,7 @@ export function App() {
         <Route path="/player/:videoId" element={<Player />} />
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
 
-        <Route path="/singup" element={<Signup />} />
+        <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function App() {
   const [message, setMessage] = useState(""); // State to hold the feedback message
@@ -75,10 +76,10 @@ export default function App() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 ">
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h1 className="text-2xl font-bold mb-4">Signup</h1>
-        <form className="form" onSubmit={(e) => Submit(e)}>
+        <form className="form space-y-2" onSubmit={(e) => Submit(e)}>
           <input
             type="text"
             placeholder="Your Name"
@@ -121,6 +122,7 @@ export default function App() {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           />
         </form>
+        <p className='text-black text-sm pt-2'>Are you an exesting user? <Link to='/login'><a className='text-blue-500'>Login</a></Link></p>
         <p className={`mt-4 text-sm ${isValid ? 'text-green-500' : 'text-red-500'}`}>{message}</p>
       </div>
     </div>
