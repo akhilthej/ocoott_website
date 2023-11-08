@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ReactPlayer from 'react-player';
+
 import StarRating from '../StarRating';
 import TeluguSlider from '../Sliders/TeluguSlide'
+import HindiSlider from '../Sliders/OriginalsSlide';
 
 const Player = () => {
   const { videoId } = useParams();
@@ -73,6 +74,7 @@ const Player = () => {
      
 
 <TeluguSlider/>
+<HindiSlider/>
 
 
     </main>

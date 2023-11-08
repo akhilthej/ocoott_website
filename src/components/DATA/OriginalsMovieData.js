@@ -3,11 +3,8 @@ const OriginalsMovieData = [
       id: 'ORG001',
       name: "Shhhh'Q",
       thumbnail: 'https://drive.google.com/uc?id=1LooTfIqQLNoFlaIG_PFnfTJTakRNSDu4',
-<<<<<<< HEAD
-      link: 'https://drive.google.com/file/d/15KLxJvvwUpUsYCpnnZFMHIZmJVcqvp3e/view?usp=drive_link',
-=======
+      link: 'https://rr3---sn-cvh7knzd.c.drive.google.com/videoplayback?expire=1699468664&ei=SKtLZbzjLd7Sp84P9saTmA4&ip=2405:201:c023:8129:e1c1:4451:f206:beb0&id=fb5bac98603774cc&itag=37&source=webdrive&requiressl=yes&xpc=EghotM6WJ3oBAQ==&mh=-1&mm=32&mn=sn-cvh7knzd&ms=su&mv=m&mvi=3&pl=47&ttl=transient&susc=dr&driveid=1BShc-g4q_tF6FU_jGXdKcuHv_Je7kMMa&app=explorer&eaua=rbtpvI8GoUg&mime=video/mp4&vprv=1&prv=1&dur=4251.387&lmt=1687187454677190&mt=1699457573&subapp=DRIVE_WEB_FILE_VIEWER&txp=0011224&sparams=expire,ei,ip,id,itag,source,requiressl,xpc,ttl,susc,driveid,app,eaua,mime,vprv,prv,dur,lmt&sig=ANLwegAwRQIgb_eb8n3yRsMQGhGcNUwW0kRldIm1Qn26dofZ6S57JA4CIQCy-myKG_5GkE_SIquxFQMYk91RwD-7E0ftgSVss-AoBA==&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AM8Gb2swRAIgPzUQghRoOU4diV_lm406fh72nE4u8xRZN9smVm83sYICIHd5mwpVSpFHpqatdsBR7RQfk67gpDKzaENwNXgezP_c&cpn=pKbqfdYH2XicPr8L&c=WEB_EMBEDDED_PLAYER&cver=1.20231105.00.01',
       link: 'shuu SENT.mp4 - Google Drive',
->>>>>>> parent of 43f6d13 (1)
       director: 'Anudeep',
       gener: 'Love',
       rating: 4.5,
@@ -93,20 +90,6 @@ const OriginalsMovieData = [
       writer: 'Raj Sehgal',
       language: 'Hindi',
     },
-    {
-      id: 'ORG004',
-      name: 'Inspector Raghavan Files',
-      thumbnail: 'https://drive.google.com/uc?id=1HMtuRJ2vEmuyywXOmwoJzfMpJYlo5ifq',
-      link: 'Inspector Raghavan Files Ep- 01 SENT.mp4 - Google Drive',
-      director: 'Raj Sehgal',
-      gener: 'Crime Thriller',
-      rating: 4.5,
-      description: 'Crime Thriller',
-      actors: ['John Reegan', 'Amjad Qureshi'],
-      producer: '(NONE)',
-      year: 2022,
-      writer: 'Raj Sehgal',
-      language: 'Hindi',
-    },
+    
   ];
   export { OriginalsMovieData };
