@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import footer_csd from './csdv2Logofooter.svg';
+import footer_csd from './csdv2Logofooter.png';
 
 const Footer = () => {
   return (

@@ -22,13 +22,18 @@ const Player = () => {
   }, [videoId]);
 
   return (
-    <main>
-    <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <main >
+    <section className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-10 sm:py-40"
+        style={{
+  backgroundImage: `url(${thumbnail})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}}>
   <div className="col-span-1 sm:col-span-1">
     <div className="m-4 sm:m-10 h-96 flex items-center justify-center">
     <Link to={`/fullscreenplayer/${encodeURIComponent(videoId)}`} className="relative">
-   <img className="w-52 h-58" src={thumbnail} alt={name} />
-   <div className="absolute inset-0 bg-black opacity-50 hover:opacity-0 transition-opacity duration-100"></div>
+   <img className="w-full h-full rounded-xl shadow-xl" src={thumbnail} alt={name} />
+   
    <div className="absolute inset-0 flex items-center justify-center">
       <span className="text-white text-2xl font-bold">Play Now</span>
    </div>

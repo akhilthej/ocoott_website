@@ -19,7 +19,7 @@ const Player = () => {
         height="100%"
         playing={true}
         controls={true}
-        muted={true}
+        muted={false}
         onEnded={() => setPlaying(false)} // Pause when the video ends
       />
     </div>

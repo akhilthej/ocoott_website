@@ -10,7 +10,6 @@ import Login from './routes/UserData/Login'
 import Player from './components/Players/Player';
 import PlayerFullScreen from './components/Players/PlayerFullScreen'
 
-import SamplePlayer from './components/Players/sampleplayer'
 
 export function App() {
   const location = useLocation();
@@ -34,7 +33,6 @@ export function App() {
         <Route path="/termsconditions" element={<TermsnConditions />} />
         <Route path="/returnpolicy" element={<ReturnPolicy />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path='/sampleplayer' element={<SamplePlayer/>} />
 
         <Route path="/player/:videoId" element={<Player />} />
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
