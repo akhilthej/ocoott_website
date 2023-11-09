@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <section class="sticky top-0 z-50 bg-black drop-shadow-lg">
       <div className="sm:px-2 w-full h-17 flex justify-between items-center text-white">
-        <Link to="/">
+        <a href="/">
           <img
             class="pl-2 h-auto w-44 lg:w-52"
             src={NavbarLogo}
@@ -39,7 +39,7 @@ const Navbar = () => {
             width="52"
             height="auto"
           />
-        </Link>
+        </a>
         <div class="justify-end">
           <ul className="flex items-center">
             <li className="p-4 text-sm hidden lg:block font-medium antialiased rounded-md px-4 py-2 text-white hover:bg-yellow-500 focus:outline-none">

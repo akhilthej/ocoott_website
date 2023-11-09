@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, Link } from 'react-router-dom';
 import {
   Navbar,
   Footer,
@@ -25,7 +25,6 @@ import ShhhhQmovie from './routes/Originals/ShhhhQ';
 
 export function App() {
   const location = useLocation();
-  const navigate = useNavigate(); // Fix: Corrected the import here
   window.scrollTo(0, 0);
 
   // Mock authentication status, replace this with actual authentication logic
@@ -35,9 +34,9 @@ export function App() {
     // Redirect to /login if trying to access protected routes without login
     const protectedRoutes = ['/telugu-movies', '/originals-movies'];
     if (!isAuthenticated && protectedRoutes.includes(location.pathname)) {
-      navigate('/login');
+      window.location.href = '/login';
     }
-  }, [isAuthenticated, location.pathname, navigate]);
+  }, [isAuthenticated, location.pathname]);
 
   return (
     <>
@@ -55,11 +54,17 @@ export function App() {
         <Route path="/returnpolicy" element={<ReturnPolicy />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
 
-        <Route path="/player/:videoId" element={<Player />} />
+        <Route
+          path="/player/:videoId"
+          element={isAuthenticated ? <Player /> : <Link to="/login" />} // Use Link
+        />
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
 
-        <Route path="/ocoplayer/:videoId" element={<OCOPlayer />} />
-
+        <Route
+          path="/ocoplayer/:videoId"
+          element={isAuthenticated ? <OCOPlayer /> : <Link to="/login" />} // Use Link
+        />
+       
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
@@ -69,11 +74,11 @@ export function App() {
         <Route path="/ShhhhQmovie" element={<ShhhhQmovie />} />
         <Route
           path="/telugu-movies"
-          element={isAuthenticated ? <Telugu /> : navigate('/login')} // Fix: Corrected the usage here
+          element={isAuthenticated ? <Telugu /> : <Link to="/login" />} // Use Link
         />
         <Route
           path="/originals-movies"
-          element={isAuthenticated ? <Hindi /> : navigate('/login')} // Fix: Corrected the usage here
+          element={isAuthenticated ? <Hindi /> : <Link to="/login" />} // Use Link
         />
 
         <Route path="*" element={<Error404 />} />
