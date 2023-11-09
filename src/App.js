@@ -32,7 +32,7 @@ export function App() {
 
   useEffect(() => {
     // Redirect to /login if trying to access protected routes without login
-    const protectedRoutes = ['/telugu-movies', '/originals-movies'];
+    const protectedRoutes = ['/telugu-movies', '/originals-movies' , '/player/:videoId'];
     if (!isAuthenticated && protectedRoutes.includes(location.pathname)) {
       window.location.href = '/login';
     }
@@ -54,28 +54,23 @@ export function App() {
         <Route path="/returnpolicy" element={<ReturnPolicy />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
 
-        <Route
-          path="/player/:videoId"
-          element={isAuthenticated ? <Player /> : <Link to="/login" />} // Use Link
-        />
+        <Route path="/player/:videoId" element={<Player />} />
+       
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
 
-        <Route
-          path="/ocoplayer/:videoId"
-          element={isAuthenticated ? <OCOPlayer /> : <Link to="/login" />} // Use Link
-        />
+        <Route path="/ocoplayer/:videoId" element={<OCOPlayer />} />
+
        
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
         <Route path="/ShhhhQmovie" element={<ShhhhQmovie />} />
-        
 
-        <Route path="/ShhhhQmovie" element={<ShhhhQmovie />} />
         <Route
           path="/telugu-movies"
           element={isAuthenticated ? <Telugu /> : <Link to="/login" />} // Use Link
         />
+
         <Route
           path="/originals-movies"
           element={isAuthenticated ? <Hindi /> : <Link to="/login" />} // Use Link
