@@ -18,7 +18,7 @@ const OriginalsMovieData = [
       id: 'ORG002',
       name: 'SPLIT',
       thumbnail: 'https://drive.google.com/uc?id=1llnm2B1YoaW4pvcfS8YVNGTUwtsQ0SDl',
-      link: 'SPLIT FOR OTT COMPLET.mov - Google Drive',
+      link: 'http://localhost:3000/ShhhhQmovie',
       director: 'VIJAYALAKSHMI, RAVI',
       gener: 'Thriller',
       rating: 4.5,
