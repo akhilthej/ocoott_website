@@ -111,7 +111,7 @@ function Login() {
                 Login
               </button>
             </form>
-            <p className='text-black text-sm pt-2'>Create new account <Link to='/register'><a className='text-blue-500'>Signup</a></Link></p>
+            <p className='text-black text-sm pt-2'>Create new account <a href='/register'><a className='text-blue-500'>Signup</a></a></p>
             <p className={`mt-4 text-sm ${message.startsWith('An error') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>
           </div>
           

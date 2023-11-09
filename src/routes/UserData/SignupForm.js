@@ -122,7 +122,7 @@ export default function App() {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           />
         </form>
-        <p className='text-black text-sm pt-2'>Are you an exesting user? <Link to='/login'><a className='text-blue-500'>Login</a></Link></p>
+        <p className='text-black text-sm pt-2'>Are you an exesting user? <a href='/login'><a className='text-blue-500'>Login</a></a></p>
         <p className={`mt-4 text-sm ${isValid ? 'text-green-500' : 'text-red-500'}`}>{message}</p>
       </div>
     </div>
