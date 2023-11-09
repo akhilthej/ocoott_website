@@ -4,7 +4,6 @@ const OriginalsMovieData = [
       name: "Shhhh'Q",
       thumbnail: 'https://drive.google.com/uc?id=1LooTfIqQLNoFlaIG_PFnfTJTakRNSDu4',
       link: 'http://localhost:3000/ShhhhQmovie',
-      link: 'shuu SENT.mp4 - Google Drive',
       director: 'Anudeep',
       gener: 'Love',
       rating: 4.5,
