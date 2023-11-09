@@ -7,8 +7,8 @@ import {Telugu,Hindi} from './routes/Routes';
 import Signup from './routes/UserData/SignupForm';
 import Login from './routes/UserData/Login'
 
-import Player from './components/Players/Player';
-import PlayerFullScreen from './components/Players/PlayerFullScreen'
+import Player from './components/YoutubePlayer/Player';
+import PlayerFullScreen from './components/YoutubePlayer/PlayerFullScreen'
 
 import ShhhhQmovie from './routes/Originals/ShhhhQ'
 

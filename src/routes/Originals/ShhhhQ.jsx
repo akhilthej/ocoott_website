@@ -9,6 +9,7 @@ const FullScreenIframe = ({ videoSrc }) => {
         title="Full Screen Video"
         className="w-full h-full"
         allowFullScreen
+        autoPlay // Add the autoplay attribute
       ></iframe>
     </div>
   );

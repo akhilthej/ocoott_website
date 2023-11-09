@@ -12,12 +12,12 @@ const Originals = () => {
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-4 pl-5 pr-5">
           {OriginalsMovieData.map((movie) => (
             <div key={movie.id} className="relative">
-              <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
+              <a href={`${(movie.link)}`}>
                 <div className="thumbnail-container">
                   <img className="p-3" src={movie.thumbnail} alt={movie.name} />
                   <div className="overlay"></div> {/* Black color overlay */}
                 </div>
-              </Link>
+              </a>
               <h1 className="text-white text-center">{movie.name}</h1>
               <h3 className="text-white text-center text-sm">{movie.director}</h3>
               <h2 className="text-white text-center text-xs">{movie.gener}</h2>
