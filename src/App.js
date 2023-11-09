@@ -10,6 +10,8 @@ import Login from './routes/UserData/Login'
 import Player from './components/Players/Player';
 import PlayerFullScreen from './components/Players/PlayerFullScreen'
 
+import ShhhhQmovie from './routes/Originals/ShhhhQ'
+
 
 export function App() {
   const location = useLocation();
@@ -39,6 +41,8 @@ export function App() {
 
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/ShhhhQmovie" element={<ShhhhQmovie />} />
         
 
 
