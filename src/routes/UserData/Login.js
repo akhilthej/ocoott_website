@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import singinposter from '../../assets/coverimages/signinposter.webp'
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -71,7 +71,12 @@ function Login() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen"
+        style={{
+          backgroundImage: `url(${singinposter})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}>
       <div className="bg-white p-8 rounded shadow-md w-96">
         {isLoggedIn ? (
           <div>
@@ -94,7 +99,7 @@ function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={(e) => validateEmail(e.target.value)}
-                  className={`w-full px-3 py-2 border ${isValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+                  className={`w-full px-3 py-2 border ${isValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-orange-500`}
                 />
                 {!isValid && <p className="text-red-500 text-xs">Please enter a valid email address.</p>}
               </div>
@@ -104,14 +109,14 @@ function Login() {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-orange-500"
                 />
               </div>
-              <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              <button type="submit" className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                 Login
               </button>
             </form>
-            <p className='text-black text-sm pt-2'>Create new account <a href='/register'><a className='text-blue-500'>Signup</a></a></p>
+            <p className='text-black text-sm pt-2'>Create new account <a href='/register'><a className='text-orange-500'>Signup</a></a></p>
             <p className={`mt-4 text-sm ${message.startsWith('An error') ? 'text-red-500' : 'text-green-500'}`}>{message}</p>
           </div>
           

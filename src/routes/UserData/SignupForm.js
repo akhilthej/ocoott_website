@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import singupposter from '../../assets/coverimages/signupposter.webp'
 
 export default function App() {
   const [message, setMessage] = useState(""); // State to hold the feedback message
@@ -76,7 +76,12 @@ export default function App() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 ">
+    <div className="flex items-center justify-center min-h-screen"lassName="flex items-center justify-center min-h-screen"
+    style={{
+      backgroundImage: `url(${singupposter})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}>
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h1 className="text-2xl font-bold mb-4">Signup</h1>
         <form className="form space-y-2" onSubmit={(e) => Submit(e)}>
@@ -86,7 +91,7 @@ export default function App() {
             name="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-orange-500"
           />
           <input
             type="text"
@@ -95,7 +100,7 @@ export default function App() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onBlur={(e) => setIsEmailValid(validateEmail(e.target.value))}
-            className={`w-full px-3 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+            className={`w-full px-3 py-2 border ${isEmailValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-orange-500`}
           />
           {!isEmailValid && <p className="text-red-500 text-xs">Please enter a valid email address.</p>}
           <input
@@ -105,7 +110,7 @@ export default function App() {
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             onBlur={(e) => setIsPhoneNumberValid(validatePhoneNumber(e.target.value))}
-            className={`w-full px-3 py-2 border ${isPhoneNumberValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-blue-500`}
+            className={`w-full px-3 py-2 border ${isPhoneNumberValid ? 'border-gray-300' : 'border-red-500'} rounded focus:outline-none focus-border-orange-500`}
           />
           {!isPhoneNumberValid && <p className="text-red-500 text-xs">Please enter a valid phone number.</p>}
           <input
@@ -114,15 +119,15 @@ export default function App() {
             name="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus-border-orange-500"
           />
           <input
             type="submit"
             value="Submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           />
         </form>
-        <p className='text-black text-sm pt-2'>Are you an exesting user? <a href='/login'><a className='text-blue-500'>Login</a></a></p>
+        <p className='text-black text-sm pt-2'>Are you an exesting user? <a href='/login'><a className='text-orange-500'>Login</a></a></p>
         <p className={`mt-4 text-sm ${isValid ? 'text-green-500' : 'text-red-500'}`}>{message}</p>
       </div>
     </div>
