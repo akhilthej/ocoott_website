@@ -10,6 +10,8 @@ import Login from './routes/UserData/Login'
 import Player from './components/YoutubePlayer/Player';
 import PlayerFullScreen from './components/YoutubePlayer/PlayerFullScreen'
 
+import OCOPlayer from './components/YoutubePlayer/OCOPlayer';
+
 import ShhhhQmovie from './routes/Originals/ShhhhQ'
 
 
@@ -17,8 +19,7 @@ export function App() {
   const location = useLocation();
   window.scrollTo(0, 0);
 
-  // Check if the current route is '/player'
-  const isPlayerRoute = location.pathname.startsWith('/player');
+
   return (
     <>
       {/* Conditionally render Navbar */}
@@ -38,6 +39,8 @@ export function App() {
 
         <Route path="/player/:videoId" element={<Player />} />
         <Route path="/fullscreenplayer/:videoId" element={<PlayerFullScreen />} />
+
+        <Route path="/ocoplayer/:videoId" element={<OCOPlayer />} />
 
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />

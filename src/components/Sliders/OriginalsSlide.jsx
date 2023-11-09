@@ -35,7 +35,7 @@ const Hindi = () => {
         <Slider {...settings}>
         {OriginalsMovieData.map((movie) => (
           <div key={movie.id} className="relative">
-            <Link to={`/player/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
+            <Link to={`/ocoplayer/${encodeURIComponent(movie.link)}?name=${movie.name}&director=${movie.director}&gener=${movie.gener}&rating=${movie.rating}&thumbnail=${movie.thumbnail}`}>
               <div className="thumbnail-container">
                 <img className="p-3" src={movie.thumbnail} alt={movie.name} />
                 <div className="overlay"></div> {/* Black color overlay */}

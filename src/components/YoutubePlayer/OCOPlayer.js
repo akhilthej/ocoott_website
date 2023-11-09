@@ -5,7 +5,7 @@ import StarRating from '../StarRating';
 import TeluguSlider from '../Sliders/TeluguSlide'
 import HindiSlider from '../Sliders/OriginalsSlide';
 
-const OCOPlayer = () => {
+const Player = () => {
   const { videoId } = useParams();
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(true);
@@ -31,13 +31,13 @@ const OCOPlayer = () => {
 }}>
   <div className="col-span-1 sm:col-span-1">
     <div className="m-4 sm:m-10 h-96 flex items-center justify-center">
-    <Link to={`/fullscreenplayer/${encodeURIComponent(videoId)}`} className="relative">
+    <a href={`${(videoId)}`}>
    <img className="w-full h-full rounded-xl shadow-xl" src={thumbnail} alt={name} />
    
    <div className="absolute inset-0 flex items-center justify-center">
       <span className="text-white text-2xl font-bold">Play Now</span>
    </div>
-</Link>
+</a>
 
     </div>
   </div>
@@ -86,4 +86,4 @@ const OCOPlayer = () => {
   );
 };
 
-export default OCOPlayer;
+export default Player;
