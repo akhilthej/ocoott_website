@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fb37987e.css",
-    "main.js": "/static/js/main.e9193036.js",
+    "main.js": "/static/js/main.00e1439f.js",
     "static/media/signinposter.webp": "/static/media/signinposter.66d161543cb02a61952f.webp",
     "static/media/signupposter.webp": "/static/media/signupposter.66d161543cb02a61952f.webp",
     "static/media/OCOLogofooter.png": "/static/media/OCOLogofooter.83c2582372aca5cd48c8.png",
@@ -14,10 +14,10 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "main.fb37987e.css.map": "/static/css/main.fb37987e.css.map",
-    "main.e9193036.js.map": "/static/js/main.e9193036.js.map"
+    "main.00e1439f.js.map": "/static/js/main.00e1439f.js.map"
   },
   "entrypoints": [
     "static/css/main.fb37987e.css",
-    "static/js/main.e9193036.js"
+    "static/js/main.00e1439f.js"
   ]
 }
