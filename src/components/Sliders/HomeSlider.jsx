@@ -6,8 +6,8 @@ const HomeSlider = () => {
   const carouselData = [
     {
       imageSrc: 'https://drive.google.com/uc?id=1qI7j8_HClKtVisdfrWCLR7LsVrnSkc2w',
-      title: 'Slide 1',
-      description: 'This is the first slide description.',
+      title: 'ShhhhQ',
+      description: 'A film by Anudeep.',
       buttons: [
         {
           label: 'Watch Now',
@@ -21,8 +21,8 @@ const HomeSlider = () => {
     },
     {
       imageSrc: 'https://drive.google.com/uc?id=1V9EP9KbKN4LyNXOcm6ImRjqwrOE49Ouw',
-      title: 'Slide 2',
-      description: 'This is the second slide description.',
+      title: 'Inspector Raghavan Files',
+      description: 'A film by Raj Sehgal.',
       buttons: [
         {
           label: 'Watch Now',
@@ -36,8 +36,8 @@ const HomeSlider = () => {
     },
     {
       imageSrc: 'https://drive.google.com/uc?id=1hNFMp9omub3cWh-T6I5GqEJgXFqGBkqL',
-      title: 'Slide 3',
-      description: 'This is the third slide description.',
+      title: 'SPLIT',
+      description: 'A film by Vijayalakshmi, Ravi.',
       buttons: [
         {
           label: 'Watch Now',
