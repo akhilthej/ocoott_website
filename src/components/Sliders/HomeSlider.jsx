@@ -11,11 +11,11 @@ const HomeSlider = () => {
       buttons: [
         {
           label: 'Watch Now',
-          url: 'https://example.com/slide1/watch',
+          url: 'https://ocomovies.com/ShhhhQmovie',
         },
         {
           label: 'More Info',
-          url: 'https://example.com/slide1/info',
+          url: 'https://ocomovies.com/ocoplayer/%2FShhhhQmovie?name=Shhhh%27Q&director=Anudeep&gener=Love&rating=4.5&thumbnail=https://drive.google.com/uc?id=1LooTfIqQLNoFlaIG_PFnfTJTakRNSDu4',
         },
       ],
     },
